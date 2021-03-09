@@ -1,0 +1,175 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "044f1d49-e235-403f-a3fc-d633977c0092": {
+        "id": "044f1d49-e235-403f-a3fc-d633977c0092",
+        "parent": null,
+        "name": "Waitlist_Notification.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Waitlist_Notification.js",
+        "cursor": {
+          "lineNumber": 12,
+          "column": 33
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "WaitlistNotification"
+        },
+        "triggers": [
+          {
+            "resourceName": "apigwailistApiaddpost",
+            "config": {}
+          }
+        ],
+        "lastUpdated": 1615268232539
+      },
+      "6a28b566-925e-44ae-8e64-ca0b836449af": {
+        "id": "6a28b566-925e-44ae-8e64-ca0b836449af",
+        "parent": null,
+        "name": "package.json",
+        "type": "JSON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "package.json"
+      },
+      "750f07df-fe36-4551-8884-be824c62812e": {
+        "id": "750f07df-fe36-4551-8884-be824c62812e",
+        "parent": null,
+        "name": "send-email.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "send-email.js",
+        "cursor": {
+          "lineNumber": 1,
+          "column": 1
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": [],
+          "name": "sendEmail"
+        },
+        "triggers": [
+          {
+            "resourceName": "ddbwaitlist",
+            "config": {
+              "StartingPosition": "LATEST",
+              "BatchSize": "100",
+              "StreamViewType": "NEW_IMAGE"
+            }
+          }
+        ],
+        "lastUpdated": 1615268390801
+      }
+    },
+    "openFiles": [
+      "044f1d49-e235-403f-a3fc-d633977c0092",
+      "750f07df-fe36-4551-8884-be824c62812e"
+    ],
+    "currentFileId": "750f07df-fe36-4551-8884-be824c62812e",
+    "resources": {
+      "apigwailistApiaddpost": {
+        "name": "apigwailistApiaddpost",
+        "type": "API_GATEWAY",
+        "config": {
+          "apiType": 1,
+          "apiMode": 0,
+          "apiName": "wailist-api",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "add",
+          "resourcePath": "/add",
+          "restMethod": "POST",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "prod",
+          "mode": 0
+        }
+      },
+      "ddbwaitlist": {
+        "name": "ddbwaitlist",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "table": {
+            "arn": "",
+            "name": "waitlist",
+            "partitionKey": "Name",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 0
+          }
+        }
+      },
+      "ses-imisyura@amazon.com": {
+        "name": "ses-imisyura@amazon.com",
+        "type": "SES",
+        "config": {
+          "selectedIdentity": "imisyura@amazon.com",
+          "projectRegion": "us-west-2"
+        }
+      }
+    },
+    "customTemplate": {
+      "syntax": "JSON",
+      "overrideDefault": false,
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "nodejs",
+          "version": "2.817.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "sigmaVersion": "1.7.0",
+    "projectName": "Waitlist_Notification",
+    "projectDescription": "Trigger email for new DB entry",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-west-2",
+    "platform": "AWS",
+    "language": "nodejs",
+    "platformRegions": {},
+    "lastSave": 1615269032427
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "waitlist_notification",
+      "url": "https://github.com/igormisyura/waitlist_notification"
+    }
+  }
+}
